@@ -5,6 +5,12 @@ from datetime import datetime
 
 from slackminion.plugins.state import BaseStateHandler
 
+from . import version
+try:
+    from . import commit
+except ImportError:
+    commit = 'HEAD'
+
 
 class MySQLStateHandler(BaseStateHandler):
     def load_state(self):
